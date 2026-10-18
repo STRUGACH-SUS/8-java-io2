@@ -18,7 +18,8 @@ public class Task01Main {
         String result = new String(process.getInputStream().readAllBytes());
         process.waitFor();
         if (result.contains("format.tags.title=")) {
-            result = result.split("format.tags.title=\"")[1].substring(0, result.indexOf("\"")).replace("\"", "");
+            result = result.split("format.tags.title=\"")[1];
+            result = result.substring(0, result.indexOf("\""));
         }
         return result;
     }
